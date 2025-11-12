@@ -102,73 +102,74 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-100">
+      <header className="border-b border-border bg-linear-to-r from-blue-600 to-purple-600 shadow-lg">
         <div className="flex items-center gap-8 px-6 py-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-primary text-primary-foreground font-bold text-sm">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-blue-600 font-bold text-lg shadow-md transform hover:scale-110 transition-transform duration-300">
               AD
             </div>
-            <span className="font-semibold">Admin</span>
+            <span className="font-semibold text-white text-lg">Admin</span>
           </div>
           <nav className="flex gap-6">
-            <button className="text-muted-foreground hover:text-foreground transition-colors">Admin</button>
-            <button className="bg-primary text-primary-foreground px-3 py-1 rounded text-sm font-medium">
+            <button className="bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300">
               Products
             </button>
-            <button className="text-muted-foreground hover:text-foreground transition-colors">Trash</button>
+            {/* <button className="text-white/80 hover:text-white transition-colors duration-200 font-medium">Trash</button> */}
           </nav>
           <div className="ml-auto flex items-center gap-4">
-            <button className="text-muted-foreground hover:text-foreground">👤</button>
-            <button className="text-muted-foreground hover:text-foreground">⚙️</button>
+            <button className="text-white/80 hover:text-white transition-colors duration-200 text-xl">👤</button>
+            <button className="text-white/80 hover:text-white transition-colors duration-200 text-xl">⚙️</button>
           </div>
         </div>
       </header>
 
-      <main className="p-8">
+      <main className="p-8 bg-linear-to-br from-slate-50 via-white to-slate-100">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Products</h1>
-            <p className="text-muted-foreground">Manage your product catalog</p>
+            <h1 className="text-4xl font-bold mb-2 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Products</h1>
+            <p className="text-muted-foreground text-lg">Manage your product catalog with ease</p>
           </div>
-          <Button className="gap-2">
-            <Plus className="w-4 h-4" />
+          <Button className="gap-2 bg-linear-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            <Plus className="w-5 h-5" />
             Add Product
           </Button>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-6 mb-8">
           <StatsCard title="Total Products" value={stats.totalProducts} />
           <StatsCard title="Render Time" value={stats.renderTime} />
           <StatsCard title="Visible Items" value={stats.visibleItems} />
         </div>
 
-        <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-4 mb-6 bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-12 py-3 rounded-full border-2 border-slate-300 focus:border-blue-500 transition-colors duration-300 shadow-sm"
             />
           </div>
           <CategoryFilter selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />
           {selectedProducts.length > 0 && (
-            <Button variant="destructive" onClick={() => setSelectedProducts([])}>
-              <Trash2 className="w-4 h-4" />
+            <Button variant="destructive" onClick={() => setSelectedProducts([])} className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <Trash2 className="w-5 h-5" />
               Delete ({selectedProducts.length})
             </Button>
           )}
         </div>
 
-        <ProductTable
-          products={filteredProducts}
-          selectedProducts={selectedProducts}
-          onSelectAll={handleSelectAll}
-          onSelectProduct={handleSelectProduct}
-          allSelected={filteredProducts.length > 0 && selectedProducts.length === filteredProducts.length}
-        />
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+          <ProductTable
+            products={filteredProducts}
+            selectedProducts={selectedProducts}
+            onSelectAll={handleSelectAll}
+            onSelectProduct={handleSelectProduct}
+            allSelected={filteredProducts.length > 0 && selectedProducts.length === filteredProducts.length}
+          />
+        </div>
       </main>
     </div>
   )

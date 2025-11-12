@@ -17,7 +17,7 @@ const categories = ['All', 'Electronics', 'Clothing', 'Books']
 const CategoryFilter: React.FC<CategoryFilterProps> = ({ selectedCategory, onCategoryChange }) => {
   return (
     <Select value={selectedCategory} onValueChange={onCategoryChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px] rounded-full border-2 border-slate-300 focus:border-blue-500 transition-colors duration-300 shadow-sm hover:shadow-md">
         <SelectValue placeholder="Select category" />
       </SelectTrigger>
       <SelectContent>

@@ -1,14 +1,7 @@
 import React from 'react'
-
-interface Product {
-  id: number
-  name: string
-  category: string
-  price: number
-  stock: number
-  image: string
-  renderTime?: number
-}
+import { Edit, Trash2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import type { Product } from '@/types/product'
 
 interface ProductTableProps {
   products: Product[]
@@ -16,6 +9,8 @@ interface ProductTableProps {
   onSelectAll: (checked: boolean) => void
   onSelectProduct: (productId: number) => void
   allSelected: boolean
+  onEditProduct: (product: Product) => void
+  onDeleteProduct: (productId: number) => void
 }
 
 const ProductTable: React.FC<ProductTableProps> = ({
@@ -24,6 +19,8 @@ const ProductTable: React.FC<ProductTableProps> = ({
   onSelectAll,
   onSelectProduct,
   allSelected,
+  onEditProduct,
+  onDeleteProduct,
 }) => {
   return (
     <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-lg">
@@ -43,6 +40,7 @@ const ProductTable: React.FC<ProductTableProps> = ({
             <th className="h-14 px-6 text-left align-middle font-semibold text-slate-700">Category</th>
             <th className="h-14 px-6 text-left align-middle font-semibold text-slate-700">Price</th>
             <th className="h-14 px-6 text-left align-middle font-semibold text-slate-700">Stock</th>
+            <th className="h-14 px-6 text-left align-middle font-semibold text-slate-700">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -63,6 +61,25 @@ const ProductTable: React.FC<ProductTableProps> = ({
               <td className="p-6 align-middle text-slate-600">{product.category}</td>
               <td className="p-6 align-middle font-semibold text-green-600">${product.price.toFixed(2)}</td>
               <td className="p-6 align-middle text-slate-700">{product.stock}</td>
+              <td className="p-6 align-middle">
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => onEditProduct(product)}
+                    size="sm"
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md"
+                  >
+                    <Edit className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    onClick={() => onDeleteProduct(product.id)}
+                    size="sm"
+                    variant="destructive"
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </Button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>

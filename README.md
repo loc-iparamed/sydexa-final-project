@@ -1,5 +1,119 @@
-# React + TypeScript + Vite
+# Sydexa Final Project
 
-`yarn`
+A modern React application built with TypeScript, Vite, and Tailwind CSS.
 
-`yarn dev`
+## Features
+
+- ⚡ **Vite** - Fast build tool and dev server
+- ⚛️ **React 19** - Latest React with concurrent features
+- 🔷 **TypeScript** - Type-safe development
+- 🎨 **Tailwind CSS** - Utility-first CSS framework
+- 🔍 **ESLint** - Code linting and quality
+- ✨ **Prettier** - Code formatting
+- 📦 **React Query** - Data fetching and caching
+- 🗂️ **React Virtualized** - Efficient list rendering
+- 🎯 **Zustand** - State management
+- 📝 **React Hook Form** - Form handling
+- ✅ **Zod** - Schema validation
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### Development
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+### Build
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+### Preview
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## Code Quality
+
+### Linting
+
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+### Code Formatting
+
+```bash
+# Format all files
+npm run format
+# or
+yarn format
+
+# Check formatting (CI/CD)
+npm run format:check
+# or
+yarn format:check
+```
+
+See [FORMATTING.md](./FORMATTING.md) for detailed formatting guidelines.
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components (shadcn/ui)
+│   └── tabs/           # Page-level components
+├── hooks/              # Custom React hooks
+│   └── utils/          # Utility hooks
+├── lib/                # Utilities and stores
+├── schemas/            # Zod validation schemas
+└── types/              # TypeScript type definitions
+```
+
+## Technologies Used
+
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand
+- **Data Fetching**: TanStack Query
+- **Form Handling**: React Hook Form
+- **Validation**: Zod
+- **Icons**: Lucide React
+- **Virtualization**: React Virtualized
+- **Notifications**: Sonner
+
+## Scripts
+
+- `dev` - Start development server
+- `build` - Build for production
+- `preview` - Preview production build
+- `lint` - Run ESLint
+- `format` - Format code with Prettier
+- `format:check` - Check code formatting

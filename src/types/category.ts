@@ -1,9 +1,9 @@
 export interface Category {
-    total: number;
-    categories: CategoryItem[];
+  total: number;
+  categories: CategoryItem[];
 }
 
 export interface CategoryItem {
-    count: number;
-    name: string;
+  count: number;
+  name: string;
 }

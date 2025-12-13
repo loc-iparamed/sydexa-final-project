@@ -1,6 +1,6 @@
 # Sydexa Final Project
 
-A modern React application built with TypeScript, Vite, and Tailwind CSS.
+A web dashboard that implements CRUD operations on products (Create, Read, Update, Delete). It demonstrates building a production-oriented UI for managing a product catalog using modern React tooling and libraries.
 
 ## Features
 

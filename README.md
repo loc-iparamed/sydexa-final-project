@@ -20,8 +20,8 @@ A web dashboard that implements CRUD operations on products (Create, Read, Updat
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
+- Node.js 20+ (required for some dev dependencies)
+- yarn (preferred)
 
 ### Installation
 

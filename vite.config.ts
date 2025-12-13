@@ -4,6 +4,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/sydexa-final-project/',
   plugins: [react()],
   resolve: {
     alias: {

@@ -117,3 +117,20 @@ src/
 - `lint` - Run ESLint
 - `format` - Format code with Prettier
 - `format:check` - Check code formatting
+
+## Deployment
+
+This project includes a GitHub Actions workflow that builds the app and deploys the `dist` output to the `gh-pages` branch on each push to `main`.
+
+- The Vite `base` is set to `/sydexa-final-project/` so the site will work when served from GitHub Pages at `https://<your-username>.github.io/sydexa-final-project/`.
+- After pushing to `main`, the action will publish to `gh-pages`; make sure GitHub Pages is configured to serve from the `gh-pages` branch (or accept the default Pages settings).
+
+Quick checks and manual deploy:
+
+```bash
+# build locally
+npm run build
+
+# preview the production build
+npm run preview
+```
